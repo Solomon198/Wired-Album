@@ -12,6 +12,11 @@ import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from 'styled-components';
 
+
+
+const CustomAppBar = styled(AppBar)`
+      background: linear-gradient(-45deg,  #23A6D5, #23D5AB) !important;
+`
 const BarContainer = styled.div`
         position: fixed;
         top: 0;
@@ -69,7 +74,7 @@ export default function MenuAppBar({title,IconComponent,onClick,search,onChangeT
   return (
     <BarContainer>
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar color="primary"  position="static">
+            <CustomAppBar color="primary"  position="static">
               <Toolbar>
                 <IconButton
                   onClick={onClick}
@@ -99,7 +104,7 @@ export default function MenuAppBar({title,IconComponent,onClick,search,onChangeT
                   )
                 }
               </Toolbar>
-            </AppBar>
+            </CustomAppBar>
           </Box>
     </BarContainer>
     

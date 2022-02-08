@@ -8,7 +8,6 @@ import Utils from './utils/helpers'
 
 
 const MainContainer = styled.div` 
-    background: #ffff;
     
 `
 const Wrapper = styled.div`
@@ -90,7 +89,7 @@ function App() {
   },[])
 
   const HeaderComponent = ()=> {
-    const title = selectedAlbum ? selectedAlbum.title : 'My Albums';
+    const title = selectedAlbum ? selectedAlbum.title : 'WiredAlbum';
     const icon = selectedAlbum ? <ArrowBack/> : <PhotoAlbum/>;
     const search = selectedAlbum ? true : false;
     return (

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const WordMatch =  styled.span`
    font-weight: bold;
    font-style: italic;
-   color: red;
+   color: #04232e;
 `
 function composeTitleWithJSX(titleArr){
    let title = <> 

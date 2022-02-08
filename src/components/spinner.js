@@ -13,12 +13,17 @@ const Container = styled(Box)`
 
 const ProgressText = styled.h4 `
     font-weight: 800;
+    color: #fff;
+`
+
+const Spinner = styled(CircularProgress)`
+     color: #fff;
 `
 
 export default function CircularIndeterminate({loadingText}) {
   return (
     <Container>
-      <CircularProgress />
+      <Spinner color="inherit"/>
       <ProgressText>
          {loadingText || 'Loading ... '}
       </ProgressText>
