@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Components from './components/index';
 import PhotoAlbum from '@mui/icons-material/Photo';
 import ArrowBack from '@mui/icons-material/ArrowBack'
-import AlbumActions from './actions/albums';
-import Utils from './utils/helpers'
+import AlbumActions from './actions/albums/albums';
+import Utils from './utils/utils'
 
 
 const MainContainer = styled.div` 
@@ -33,12 +33,13 @@ const ErrorContainer = styled.div`
 `
 
 function App() {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false); // toggles spinner
   const [albums, setAlbums] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [selectedAlbum, setSelectedAlbum] = useState(null);
   const [album, setAlbum] = useState([]);
-  const [rawAlbum,setRawAlbum] = useState([])
+  const [rawAlbum,setRawAlbum] = useState([]);
+
 
   const handleGetAlbums = async ()=>{
       setLoading(true);
@@ -52,7 +53,10 @@ function App() {
       setLoading(false);
   }
 
-
+  /**
+   * 
+   * @param {Album} album 
+   */
   const handleSelectedAlbum = (album)=> {
     setSelectedAlbum(album);
     handleGetAlbum(album.id)
@@ -63,13 +67,24 @@ function App() {
       setSelectedAlbum(null);
     }
   }
-
+  
+  /**
+   * 
+   * @param {string} search 
+   *  
+   */
   const DoSearch = (search)=> {
     if(!search.trim()) return setAlbum(rawAlbum);
     const searchResult  = Utils.SearchAlbum(search,rawAlbum);
     setAlbum(searchResult);
   }
 
+
+  /**
+   * 
+   * @param {string} albumId 
+   *  
+   */
   const handleGetAlbum = async (albumId)=> {
       setLoading(true);
       setErrorMessage('');
@@ -85,6 +100,7 @@ function App() {
   
 
   useEffect(()=>{
+     // Gets all albums
      handleGetAlbums();
   },[])
 
@@ -122,11 +138,15 @@ function App() {
 
 
   const AlbumsRenderComponent = ()=> {
+        /**
+         * @type Album[]
+         */
+        const $albums = albums;
         return (
           <Wrapper>
               <AlbumsContainer>
               {
-                albums.map((item,index)=>
+                $albums.map((item,index)=>
                   <AlbumContainer key={index.toString()}>
                     <Components.Card  onClick={handleSelectedAlbum.bind(null,item)}  title={item.title}/>
                   </AlbumContainer>
@@ -137,12 +157,17 @@ function App() {
         )
   }
 
+
 const AlbumRenderComponent = ()=> {
+     /**
+     * @type Photo[]
+     */
+    const $album = album;
     return (
       <Wrapper>
           <AlbumsContainer>
           {
-            album.map((item,index)=>
+            $album.map((item,index)=>
               <AlbumContainer key={index.toString()}>
                 <Components.Card 
                   isAlbum 

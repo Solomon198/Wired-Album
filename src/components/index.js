@@ -1,7 +1,7 @@
-import AppBar from './appBar';
-import Spinner from './spinner'
-import Card from './card'
-import Alert from './alert'
+import AppBar from './AppBar/appBar';
+import Spinner from './Spinner/spinner'
+import Card from './Card/card'
+import Alert from './Alert/alert'
 
 const Components = {
     AppBar,

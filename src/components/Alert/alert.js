@@ -2,6 +2,9 @@ import * as React from 'react';
 import {Alert,Button,Stack} from '@mui/material';
 import  PropTypes  from 'prop-types';
 
+
+
+
 export default function ActionAlerts({message,type,onClick}) {
   return (
     <Stack sx={{ width: '100%' }} spacing={2}>

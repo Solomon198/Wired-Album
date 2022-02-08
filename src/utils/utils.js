@@ -1,20 +1,27 @@
-import styled from 'styled-components';
+import React from 'react';
+import {WordMatch} from './utils.components';
 
-const WordMatch =  styled.span`
-   font-weight: bold;
-   font-style: italic;
-   color: #04232e;
-`
+/**
+ * 
+ * @param {string[]} titleArr Array of words in a title, some strings have been formatted into JSX
+ * @returns {JSX.Element} returns the title as JSX expression
+ */
 function composeTitleWithJSX(titleArr){
    let title = <> 
    {titleArr.map((item)=> <>{item} {' '}</>)}
  </>
-   
    return title;
 }
 
+/**
+ * 
+ * @param {string} searchText Text to search in photo title
+ * @param {Photo} photo Accepts a single photo
+ * @returns {Photo[] | null} Returns  photo with formated  words in title that contains searchText if search string is found or returns null if search string does not match any word or substring in a word
+ */
 function Search(searchText,photo){
     let photoTitle = photo.title;
+    /** @type {string[]} */
     let newTitleArray = [];
     const photoTitleToArray = photoTitle.split(' ');
     let foundMatch = false;
@@ -37,8 +44,15 @@ function Search(searchText,photo){
     
 }
 
+
+/**
+ * 
+ * @param {string} searchText Text to search in photo title
+ * @param {Photo[]} album Array of photos in an album to search
+ * @returns {Photo[]} Returns filtered album or photos in an album
+ */
 function SearchAlbum(searchText,album){
-    // returns 
+
     const searchResult = [];
     album.forEach((photo)=>{
        const result =  Search(searchText,photo);
