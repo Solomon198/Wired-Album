@@ -1,36 +1,19 @@
 import React,{useEffect,useState,} from 'react';
-import styled from 'styled-components';
 import Components from './components/index';
 import PhotoAlbum from '@mui/icons-material/Photo';
 import ArrowBack from '@mui/icons-material/ArrowBack'
 import AlbumActions from './actions/albums/albums';
-import Utils from './utils/utils'
+import Utils from './utils/utils';
+import {
+    MainContainer,
+    ErrorContainer,
+    Wrapper,
+    AlbumContainer,
+    AlbumsContainer
+  } from './App.components';
 
 
-const MainContainer = styled.div` 
-    
-`
-const Wrapper = styled.div`
-    width: 80%;
-    margin: auto;
-    margin-top: 7em;
-`
-const AlbumsContainer = styled.div`
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-`
 
-const AlbumContainer = styled.div`
-      width: 30%;
-      margin: 10px 0px;
-`
-
-const ErrorContainer = styled.div`
-      width: 50%;
-      margin: 10em auto;
-`
 
 function App() {
   const [isLoading, setLoading] = useState(false); // toggles spinner
@@ -131,9 +114,7 @@ function App() {
   const SpinnerLoadingComponent = ()=> {
     const loadingText = selectedAlbum ? 'Loading Album' : 'Loading Albums';
     return <Components.Spinner  loadingText={loadingText}/>
-
   }
-
 
 
 

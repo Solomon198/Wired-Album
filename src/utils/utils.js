@@ -13,6 +13,7 @@ function composeTitleWithJSX(titleArr){
    return title;
 }
 
+
 /**
  * 
  * @param {string} searchText Text to search in photo title
@@ -23,6 +24,7 @@ function Search(searchText,photo){
     let photoTitle = photo.title;
     /** @type {string[]} */
     let newTitleArray = [];
+     /** @type {string[]} */
     const photoTitleToArray = photoTitle.split(' ');
     let foundMatch = false;
     photoTitleToArray.forEach((str)=>{
@@ -39,15 +41,13 @@ function Search(searchText,photo){
 
     if(foundMatch){
         return {...photo,title:composeTitleWithJSX(newTitleArray)}
-    }
-
-    
+    }  
 }
 
 
 /**
  * 
- * @param {string} searchText Text to search in photo title
+ * @param {string} searchText Text to search in photo titles
  * @param {Photo[]} album Array of photos in an album to search
  * @returns {Photo[]} Returns filtered album or photos in an album
  */
