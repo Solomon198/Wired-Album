@@ -4,7 +4,7 @@ import PropTypes  from 'prop-types';
 
 export default function CircularIndeterminate({loadingText}) {
   return (
-    <Container>
+    <Container data-testid="spinner-component">
       <Spinner color="inherit"/>
       <ProgressText>
          {loadingText || 'Loading ... '}

@@ -4,6 +4,7 @@ import {
   Toolbar,
   Typography,
   IconButton,
+  Hidden
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
@@ -32,12 +33,12 @@ export default function AppBar({title,IconComponent,onClick,search,onChangeText}
                 >
                   {IconComponent}
                 </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                  {title}
-                </Typography>
+                  <Typography sx={{flexGrow: 1}}  variant="h6" component="div">
+                    {title}
+                  </Typography>
                 {
                   search && (
-                    <Search>
+                    <Search data-testid="search-component">
                     <SearchIconWrapper>
                       <SearchIcon />
                     </SearchIconWrapper>

@@ -9,16 +9,14 @@ export const Wrapper = styled.div`
     margin-top: 7em;
 `
 export const AlbumsContainer = styled.div`
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      font-family: sans-serif;
 `
 
-export const AlbumContainer = styled.div`
-      width: 30%;
-      margin: 10px 0px;
-`
 
 export const ErrorContainer = styled.div`
       width: 50%;

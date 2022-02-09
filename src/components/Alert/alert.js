@@ -7,7 +7,7 @@ import  PropTypes  from 'prop-types';
 
 export default function ActionAlerts({message,type,onClick}) {
   return (
-    <Stack sx={{ width: '100%' }} spacing={2}>
+    <Stack data-testid="alert-component" sx={{ width: '100%' }} spacing={2}>
       <Alert
         severity={type || 'error' }
         action={

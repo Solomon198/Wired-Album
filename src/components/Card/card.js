@@ -10,12 +10,13 @@ import {
 } from './card.components'
 
 
-export default function CardComponent({isAlbum,title,imageUri,onClick}) { 
+export default function CardComponent({isAlbum,title,imageUri,onClick,btnText}) { 
  
   // Renders list of albums
   if(!isAlbum){
     return (
-         <Album>
+         
+         <Album onClick={onClick} data-testid='albums-card'>
                 <Image src="/img/album.png"/>
                 <AlbumTitle>
                   {title}
@@ -27,9 +28,9 @@ export default function CardComponent({isAlbum,title,imageUri,onClick}) {
 
   // Renders Photos in an album
   return (
-        <Gallery>
+        <Gallery data-testid='album-photos-card'>
                 <Image src={imageUri}/>
-                <PhotoTitle class="description">
+                <PhotoTitle>
                     {title}
                 </PhotoTitle>
         </Gallery>

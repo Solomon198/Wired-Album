@@ -8,7 +8,7 @@ import {WordMatch} from './utils.components';
  */
 function composeTitleWithJSX(titleArr){
    let title = <> 
-   {titleArr.map((item)=> <>{item} {' '}</>)}
+   {titleArr.map((item,index)=> <span key={index.toString()}>{item} {' '}</span>)}
  </>
    return title;
 }

@@ -10,6 +10,7 @@ export const Album = styled.div`
       border-radius: 4px;
       transition: all .3s ease;
       box-shadow: 0 0 3px rgba(0, 0, 0, .9);
+
 `
 
 export const Link = styled.a`
@@ -18,11 +19,14 @@ export const Link = styled.a`
       text-decoration: none;
       text-transform: uppercase;
       border: 1px solid black;
-      padding: 15px 0;
+      //padding: 15px 0;
       border-radius: 25px;
       text-align: center;
       flex: 100%;
       cursor: pointer;
+      height: 40px;
+      padding-top: 15px;
+      
 `
 
 export const AlbumTitle = styled.h1`
@@ -43,13 +47,13 @@ export const Image = styled.img`
 export const Gallery = styled.div`
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
+      background-color: #48a9cb;
 `
 
 export const PhotoTitle = styled.div`
       line-height: 1.5;
       font-size: 1.2em;
       padding: 18px;
-      background: #48a9cb;
       color: ghostwhite;
       text-align: center;
       letter-spacing: 1px;

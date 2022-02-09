@@ -8,7 +8,6 @@ import {
     MainContainer,
     ErrorContainer,
     Wrapper,
-    AlbumContainer,
     AlbumsContainer
   } from './App.components';
 
@@ -69,6 +68,7 @@ function App() {
    *  
    */
   const handleGetAlbum = async (albumId)=> {
+      console.log('This guy is fireing hello')
       setLoading(true);
       setErrorMessage('');
       const {success,data} =  await AlbumActions.GetAlbum(albumId);
@@ -128,9 +128,13 @@ function App() {
               <AlbumsContainer>
               {
                 $albums.map((item,index)=>
-                  <AlbumContainer key={index.toString()}>
-                    <Components.Card  onClick={handleSelectedAlbum.bind(null,item)}  title={item.title}/>
-                  </AlbumContainer>
+                 
+                    <Components.Card  
+                      data-testid={index == 0 ? 'view-album-test-item':null}
+                      key={index.toString()}
+                      onClick={handleSelectedAlbum.bind(null,item)}  
+                     title={item.title}/>
+                  
                 )
               }
               </AlbumsContainer>
@@ -149,12 +153,12 @@ const AlbumRenderComponent = ()=> {
           <AlbumsContainer>
           {
             $album.map((item,index)=>
-              <AlbumContainer key={index.toString()}>
+              
                 <Components.Card 
+                  key={index.toString()}
                   isAlbum 
                   imageUri={item.thumbnailUrl}  
                   title={item.title}/>
-              </AlbumContainer>
             )
           }
           </AlbumsContainer>

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import axios from 'axios';
+import './app.css'
 
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
 

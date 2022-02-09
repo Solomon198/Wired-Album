@@ -3,7 +3,7 @@ import axios from 'axios';
 /**
  * Get list of all albums
  * @param {string} [userId] - id of the user to get album 
- * @returns {{success: string, data: Album} All albums
+ * @returns {{success: boolean, data: Album[]} All albums
  */
 async function GetAlbums(userId=1){
   try{
@@ -17,7 +17,7 @@ async function GetAlbums(userId=1){
 /**
  * Get list of photos in an album
  * @param {string} [albumId] - id of the album 
- * @returns {{success: string, data: Photo}} All albums
+ * @returns {{success: boolean, data: Photo[]}} All albums
  */
 async function GetAlbum(albumId){
     try{
